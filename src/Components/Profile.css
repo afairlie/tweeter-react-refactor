@@ -1,0 +1,24 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: lightskyblue;
+  background-image: url("https://www.transparenttextures.com/patterns/connected.png");
+  height: 430px;
+  padding-top: 100px;
+}
+
+.profile img {
+  align-self: center;
+}
+
+.profile h1 {
+  margin: 0;
+  align-self: center;
+  font-weight: 700;
+}
+
+.profile span {
+  font-weight: 300;
+}
