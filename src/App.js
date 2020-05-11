@@ -4,6 +4,7 @@ import { Navigation } from './Components/Navigation';
 import { Profile } from './Components/Profile';
 import { TweetForm } from './Components/TweetForm';
 import { Tweet } from './Components/Tweet';
+import { TweetsContainer } from './Components/TweetsContainer';
 
 // jsx - build individual components in independent files.
 // props are properties given to a component
@@ -26,6 +27,7 @@ const initialTweets = [
 ]
 
 function App() {
+  // app watching state change of tweets array, because TweetForm can change tweets, and TweetsContainer needs to be fed tweets
   const [tweets, setTweetData] = useState(initialTweets);
 
   const addNewTweet = (text) => {
@@ -47,24 +49,9 @@ function App() {
      <TweetForm 
       addNewTweet={addNewTweet}
      />
-     <section className='tweets-container'>
-       {tweets.map((tweet, index) => {
-         const {name, handle, profile_image, text, date} = tweet;
-         return <Tweet
-        //  remember to give keys to each instance of a component in a multi-component container
-         key={index}
-         name={name}
-         handle={handle}
-         profile_image={profile_image}
-         text={text}
-         date={date}
-         />
-       })}
-     </section>
+     <TweetsContainer tweets={tweets}/>
     </div>
   );
 }
 
 export default App;
-
-//       <Tweet name={tweets[0].name} handle={tweets[0].handle} profile_image={tweets[0].profile_image} text={tweets[0].text} date={tweets[0].date}/>

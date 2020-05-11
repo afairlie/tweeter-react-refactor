@@ -5,7 +5,11 @@ import './Tweet.css';
 export const Tweet = (props) => {
   const {name, handle, profile_image, text, date} = props;
   return (
+    <>
+    {/* {conditional rendering, if no data being passed, don't render tweet at all} */}
+    {name && handle && profile_image && date &&
     <article className="tweet">
+      
         <header>
           <div><img src={profile_image}/>{name}</div>
           <div><span>{handle}</span></div>
@@ -22,5 +26,7 @@ export const Tweet = (props) => {
           </div>
         </footer>
       </article>
+    }
+    </>
   )
 }

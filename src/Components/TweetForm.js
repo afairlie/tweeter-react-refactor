@@ -3,10 +3,12 @@ import Icon from '@material-ui/core/Icon';
 import './TweetForm.css';
 
 export const TweetForm = (props) => {
+  // addNewTweet is function that changes state of tweetsContainer component in App.js
   const { addNewTweet } = props
   // useState always returns array with currentState, and function to set state. useState() sets initial state on load
   const [tweetText, setTweetText] = useState('');
   const tweetRemainingLength = 140 - tweetText.length;
+  // is a good rule of thumb for styling that conditional styling you still add/remove class rather than hardcode css into js script?
   const spanStyle = {color: tweetRemainingLength >=0 ? 'black' : 'red'}
 
   const submitTweet = event => {
